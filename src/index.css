@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes radarSweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.4)); }
+    50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.7)); }
+  }
+
+  @keyframes industrialScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(1000%); }
+  }
+
+  .animate-radar {
+    animation: radarSweep 8s linear infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2.5s ease-in-out infinite;
+  }
+
+  .scanline-overlay {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.03),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.03)
+    );
+    background-size: 100% 3px, 4px 100%;
+    pointer-events: none;
+  }
+
+  .industrial-grid-bg {
+    background-image: radial-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+}
